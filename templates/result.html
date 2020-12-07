@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Prediction Result</h1>
+	<font size="4" face="Courier, Pica, Monospace"></font>
+	
+	<table class="table">
+
+	<tbody>
+			<tr>
+			<th width="300">Sequence</th><th>Type</th><th>P-Score</th>
+			</tr>
+			{% for r in result%}
+			{% if 'Inv' not in r[0] %}
+			{% if 'Non' in r[1]%}
+			<tr class="warning">
+				<td><div style="word-wrap: break-word;width:500px;overflow:visible;color:red" class="warning"> {{r[0]}}</div> </td>
+				<td><p style="color:red" class="warning">{{r[1]}}</p> </td>
+			</tr>
+			{% else %}
+			<tr class="success">
+				<td><div style="word-wrap: break-word;width:500px;overflow:visible;color:green" class="warning">{{r[0]}}</div> </td>
+				<td><p style="color:green" class="warning">{{r[2]}}, {{r[1]}}</p> </td>
+				
+				<td><p style="color:green" class="warning">{{r[3]}}</p> </td>
+			</tr>
+			{% endif %}
+			{% else %}
+			<tr class="warning">
+				<td><div style="word-wrap: break-word;width:500px;overflow:visible;color:red" class="warning"> {{r[0]}}</div> </td>
+			</tr>
+			{% endif %}			
+			{% endfor %}
+		</tbody>
+</table>
+
+</br>
+<button class="btn btn-primary" style="margin-bottom: 3%;" onclick="history.back()">Back</button>
+
+{% endblock %}

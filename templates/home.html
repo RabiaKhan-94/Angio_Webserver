@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div style="background-color:gray">
+<button type="Click">
+<a href="C:\Users\a\Desktop\Angiogensis\templates\about.html">About Us</a>
+</button>
+<button type="Click">
+<a href="C:\Users\a\Desktop\Angiogensis\templates\readme.html">Read Me</a>
+</button>
+<button type="Click">
+<a href="C:\Users\a\Desktop\Angiogensis\templates\example.html"> Example </a>
+</button>
+</div>
+  <div style="background-image: url('static/a.jpg')">
+<h1 style="background-color:gray;text-align:center;color:white;">Identification of Angiogensis</h1>
+    <p class="lead" style="font-family:courier;text-align:justify">
+           A crucial biological process called Angiogenesis plays a vital role in migration, growth, and wound healing of endothelial cells and other processes that are controlled by chemical signals.The balancing of these signals is necessary for the proper working of angiogenesis.Unbalancing of these signals increase blood vessel formation, which causes abnormal growth or several diseases including cancer. This is a two layer prediction model for identification of normal and abnormal angiogenesis process.<br> 	    
+		   </p>
+      <p class="lead" style="font-family:courier;text-align:justify">In the present paper at first stage we will determine weather the given sequence is angiogenesis or non angiogenesis process.If it is determined as an angiogenesis protein then the second layer of the model will determine is it causing tumor. 
+      </p>
+
+      {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.sequence, class_="form-control", style="width: 100%;height: 100px;")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit Sequence"></p>
+  </form>
+
+  </div>
+
+{% endblock %}
+
